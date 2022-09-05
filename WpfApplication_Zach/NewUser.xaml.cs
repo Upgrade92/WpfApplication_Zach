@@ -1,18 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace WpfApplication_Zach
 {
@@ -24,11 +12,8 @@ namespace WpfApplication_Zach
         public NewUser()
         {
             InitializeComponent();
-        }
-
-        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
+            
+            
         }
 
         private void SaveButton_Click(object sender, RoutedEventArgs e)
@@ -84,78 +69,91 @@ namespace WpfApplication_Zach
             {             
                 new DatabaseHelper().DoNonQuery($"INSERT INTO [TablePeople] (Firstname,Lastname,[E-Mail],Geschlecht, Geburtsdatum) VALUES('{firstname}','{lastname}','{email}','{gender}','{birthdate}')");
                 MessageBox.Show("New User saved!");
-                labelError.Visibility = Visibility.Hidden;        
+
             }
-            else { 
-                MessageBox.Show("NoNoNo");
-                labelError.Visibility = Visibility.Visible;
+            else
+            {
+                MessageBox.Show("Nope");
             }
+            
         }
-        private bool TextboxFilled(TextBox txt)
+        private bool TextboxFilled(TextBox txt, Label label)
         {
             if (txt.Text != "")
             {
+                label.Visibility = Visibility.Hidden;
                 txt.BorderBrush = Brushes.Transparent;
                 return true;
             }
             else
             {
+                label.Visibility = Visibility.Visible;
                 txt.BorderBrush = Brushes.Red;
                 return false;
             }
         }
 
-        private bool TextboxFilled(TextBox txt,bool validation)
+        
+
+        private bool TextboxFilled(TextBox txt,bool validation, Label label)
         {
-            if (txt.Text != ""&& new Helper().EmailValidation(textBoxEmail,textBoxEmail.Text))
+            if (txt.Text != "" && new Helper().EmailValidation(textBoxEmail))
             {
+                label.Visibility = Visibility.Hidden;
                 txt.BorderBrush = Brushes.Transparent;
                 return true;
             }
             else
             {
+                label.Visibility = Visibility.Visible;
                 txt.BorderBrush = Brushes.Red;
                 return false;
             }
         }
 
 
-        private bool RadioButtonChecked()
+        private bool RadioButtonChecked(Label errormsg, Label label)
         {
             if (radioButtonMale.IsChecked == true || radioButtonFemale.IsChecked == true)
-            {
+            {                
+                errormsg.Visibility = Visibility.Hidden;
+                label.Background = Brushes.Transparent;
                 radioButtonFemale.BorderBrush = Brushes.Transparent;
                 radioButtonMale.BorderBrush = Brushes.Transparent;
                 return true;
             }
             else
             {
+                errormsg.Visibility = Visibility.Visible;
+                label.Background = Brushes.Red;
                 radioButtonFemale.BorderBrush = Brushes.Red;
                 radioButtonMale.BorderBrush = Brushes.Red;
                 return false;
             }
         }
 
-        private bool DatePicked()
+        private bool DatePicked(Label label)
         {
             if (birthdatePicker.SelectedDate != null && new Helper().validBirthdate(birthdatePicker))
             {
+                label.Visibility = Visibility.Hidden;
                 birthdatePicker.BorderBrush = Brushes.Transparent;
                 return true;
             }
             else
             {
+                label.Visibility = Visibility.Visible;
                 birthdatePicker.BorderBrush = Brushes.Red;
                 return false;
             }
         }
         private bool CheckAll()
         {
-            bool check1 = TextboxFilled(textBoxFirstname);
-            bool check2 = TextboxFilled(textBoxLastname);
-            bool check3 = TextboxFilled(textBoxEmail) && new Helper().EmailValidation(textBoxEmail ,textBoxEmail.Text);
-            bool check4 = RadioButtonChecked();
-            bool check5 = DatePicked();
+            bool check1 = TextboxFilled(textBoxFirstname,labelErrorFirstname);
+            bool check2 = TextboxFilled(textBoxLastname, labelErrorLastname);
+            bool check3 = TextboxFilled(textBoxEmail,new Helper().EmailValidation(textBoxEmail) ,labelErrorMail);
+            bool check4 = RadioButtonChecked(labelErrorGender, labelGender);
+            bool check5 = DatePicked(labelErrorDate);
             
             if (check1 && check2 && check3 && check4 && check5)
             {

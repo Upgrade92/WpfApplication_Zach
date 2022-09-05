@@ -1,24 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+
 
 namespace WpfApplication_Zach
 {
-    /// <summary>
-    /// Interaction logic for HomeWindow.xaml
-    /// </summary>
     public partial class HomeWindow : Window
     {
         public HomeWindow()
@@ -29,13 +16,12 @@ namespace WpfApplication_Zach
 
         private void newButton_Click(object sender, RoutedEventArgs e)
         {
-            NewUser register = new NewUser();
-            register.Show();
+            new NewUser().Show();
         }
 
         private void edit_Click(object sender, RoutedEventArgs e)
         {
-         
+            new EditUser().Show();
         }
 
         private void deleteButton_Click(object sender, RoutedEventArgs e)

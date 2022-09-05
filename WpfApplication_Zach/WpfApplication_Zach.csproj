@@ -86,8 +86,6 @@
     <Compile Include="NewUser.xaml.cs">
       <DependentUpon>NewUser.xaml</DependentUpon>
     </Compile>
-    <Compile Include="People.cs" />
-    <Compile Include="UserAccount.cs" />
     <Page Include="EditUser.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

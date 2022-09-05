@@ -15,7 +15,7 @@
                   Margin="50,36,0,0" 
                   VerticalAlignment="Top" 
                   Width="120" 
-                  SelectionChanged="ComboBox_SelectionChanged" IsEnabled="False">
+                  IsEnabled="False">
             <ComboBoxItem x:Name="comboBoxItem1" Content="Anrede" IsSelected="True"/>
             <ComboBoxItem x:Name="comboBoxItem2" Content="Herr" />
             <ComboBoxItem x:Name="comboBoxItem3" Content="Frau" />
@@ -81,7 +81,7 @@
                      />
 
         <Button x:Name="saveButton"
-                Content="Save" 
+                Content="Speichern" 
                 HorizontalAlignment="Left" 
                 Margin="50,259,0,0" 
                 VerticalAlignment="Top" 
@@ -90,22 +90,77 @@
                 Click="SaveButton_Click"/>
 
         <Button x:Name="cancelButton"
-                Content="Close" 
+                Content="Schließen" 
                 HorizontalAlignment="Left" 
                 Margin="110,259,0,0" 
                 VerticalAlignment="Top" 
                 Width="60" 
                 Click="CloseButton_Click"/>
 
-        <Label x:Name="labelError"
-               Content="ERROR!" 
+        <Label x:Name="labelErrorFirstname"
+               Content="Darf nicht leer sein!" 
                Foreground="Red"
-               HorizontalContentAlignment="Center"
+               HorizontalContentAlignment="Left"
                HorizontalAlignment="Left" 
-               Margin="350,27,0,0" 
+               Margin="400,66,0,0" 
                VerticalAlignment="Top" 
-               Width="79" 
-               FontSize="14"/>
+               Width="200" 
+               FontSize="14" 
+               RenderTransformOrigin="0.405,-0.383"
+               Visibility="Hidden"
+               />
+
+        <Label x:Name="labelErrorLastname"
+               Content="Darf nicht leer sein!" 
+               Foreground="Red"
+               HorizontalContentAlignment="Left"
+               HorizontalAlignment="Left" 
+               Margin="400,96,0,0" 
+               VerticalAlignment="Top" 
+               Width="200" 
+               FontSize="14" 
+               RenderTransformOrigin="0.405,-0.383"
+               Visibility="Hidden"
+               />
+
+        <Label x:Name="labelErrorMail"
+               Content="gültige E-Mail erdorderlich!" 
+               Foreground="Red"
+               HorizontalContentAlignment="Left"
+               HorizontalAlignment="Left" 
+               Margin="400,126,0,0" 
+               VerticalAlignment="Top" 
+               Width="200" 
+               FontSize="14" 
+               RenderTransformOrigin="0.405,-0.383"
+               Visibility="Hidden"
+               />
+
+        <Label x:Name="labelErrorGender"
+               Content="Gibt nur die 2 ...!" 
+               Foreground="Red"
+               HorizontalContentAlignment="Left"
+               HorizontalAlignment="Left" 
+               Margin="400,156,0,0" 
+               VerticalAlignment="Top" 
+               Width="200" 
+               FontSize="14" 
+               RenderTransformOrigin="0.405,-0.383"
+               Visibility="Hidden"
+               />
+
+        <Label x:Name="labelErrorDate"
+               Content="mindestens 18 Jahre alt!" 
+               Foreground="Red"
+               HorizontalContentAlignment="Left"
+               HorizontalAlignment="Left" 
+               Margin="400,186,0,0" 
+               VerticalAlignment="Top" 
+               Width="200" 
+               FontSize="14" 
+               RenderTransformOrigin="0.405,-0.383"
+               Visibility="Hidden"
+               />
 
         <Label  x:Name="labelFirstname"
                 Content="Vorname" 
@@ -123,7 +178,7 @@
                 Content="Geschlecht:" 
                 HorizontalAlignment="Left" 
                 Margin="50,154,0,0" 
-                VerticalAlignment="Top"/>
+                VerticalAlignment="Top" BorderBrush="Transparent" Background="Transparent"/>
 
         <Label  x:Name="labelEmail"
                 Content="E-Mail" 

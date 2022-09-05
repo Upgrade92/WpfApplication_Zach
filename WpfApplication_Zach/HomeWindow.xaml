@@ -31,7 +31,7 @@
                   >
         </ListView>
         <Button x:Name="newButton" 
-                Content="New" 
+                Content="Neu" 
                 HorizontalAlignment="Left" 
                 Margin="630,37,0,0" 
                 VerticalAlignment="Top" 
@@ -41,7 +41,7 @@
                 
         />
         <Button x:Name="edit" 
-                Content="Edit" 
+                Content="Bearbeiten" 
                 HorizontalAlignment="Left" 
                 Margin="630,77,0,0" 
                 VerticalAlignment="Top" 
@@ -51,7 +51,7 @@
                 
         />
         <Button x:Name="deleteButton" 
-                Content="Delete" 
+                Content="Löschen" 
                 HorizontalAlignment="Left" 
                 Margin="630,117,0,0" 
                 VerticalAlignment="Top" 
@@ -61,7 +61,7 @@
                 
         />
         <Button x:Name="refreshButton" 
-                Content="Refresh" 
+                Content="Aktualisieren" 
                 HorizontalAlignment="Left" 
                 Margin="630,157,0,0" 
                 VerticalAlignment="Top" 

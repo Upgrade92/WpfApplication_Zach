@@ -17,16 +17,12 @@ using System.Windows.Shapes;
 
 namespace WpfApplication_Zach
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
-
         public MainWindow()
         {
             InitializeComponent();
-           
+            labelNote.Content = "Admin\nAdmin";
         }
 
         private void CheckBox_Checked(object sender, RoutedEventArgs e)
@@ -83,28 +79,20 @@ namespace WpfApplication_Zach
         {
             string username = usernameBox.Text.ToString();
             string password = passwordBox.Password.ToString();
-            SqlConnection connection = new SqlConnection(new DatabaseHelper().ConnectionString);
+
             try
             {
-                connection.Open();
-                string querry = "SELECT * FROM [Table] Where Username = '" + username + "' AND Password = '" + password + "'";
-                SqlDataAdapter sda = new SqlDataAdapter(querry, connection);
-                DataTable dt = new DataTable();
-                sda.Fill(dt);
-                
+                DataSet ds = new DatabaseHelper().DoQuery("SELECT * FROM [Table] Where Username = '" + username + "' AND Password = '" + password + "'");                               
                 try
-                {
-                    UserAccount user = new UserAccount(username, password, Convert.ToInt32(dt.Rows[0][3]));
-
-                    if (dt.Rows.Count == 1)
+                {                    
+                    if (ds.Tables.Count == 1)
                     {
-                        MessageBox.Show("Login successfully!\n" + user.UserName + "\n" + user.Password + "\n" + user.Permission);
+                        MessageBox.Show("Login successfully!\n");
                         MainWindow mainWindow = this;
                         mainWindow.Hide();
                         HomeWindow home = new HomeWindow();
                         home.Show();
                     }
-                    connection.Close();
                 }
                 catch (IndexOutOfRangeException)
                 {

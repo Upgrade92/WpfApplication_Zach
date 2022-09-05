@@ -22,12 +22,12 @@ namespace WpfApplication_Zach
                 label.Visibility = Visibility.Hidden;
             }
         }
-        public bool EmailValidation(TextBox text, string mail)
+        public bool EmailValidation(TextBox text)
         {
             if (text.Text.Length > 4)
             {
                 Regex mailRegex = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$", RegexOptions.IgnoreCase);
-                return mailRegex.IsMatch(mail);
+                return mailRegex.IsMatch(text.Text);
             }
             else return false;
         }
