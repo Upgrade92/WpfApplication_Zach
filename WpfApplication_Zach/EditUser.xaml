@@ -5,40 +5,102 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApplication_Zach"
         mc:Ignorable="d"
-        Title="EditUser" Height="390" Width="624">
+        Title="EditUser" Height="350" Width="350">
     <Window.Background>
         <ImageBrush ImageSource="/user.jpg"/>
     </Window.Background>
     <Grid>
         <Label 
-               Content="First name" 
+               Content="Vorname:" 
+               Width="100"
                HorizontalAlignment="Left" 
-               Margin="40,70,0,0" 
+               Margin="47,43,0,0" 
                VerticalAlignment="Top"/>
 
         <Label 
-               Content="Last name" 
+               Content="Nachname:" 
+               Width="100"
                HorizontalAlignment="Left" 
-               Margin="40,110,0,0" 
+               Margin="47,83,0,0" 
                VerticalAlignment="Top"/>
 
         <Label 
-               Content="Label" 
+               Content="E-Mail:" 
+               Width="100"
                HorizontalAlignment="Left" 
-               Margin="40,150,0,0" 
+               Margin="47,123,0,0" 
                VerticalAlignment="Top"/>
 
         <Label 
-               Content="Label" 
+               Content="Geschlecht:" 
+               Width="100"
                HorizontalAlignment="Left" 
-               Margin="40,190,0,0" 
+               Margin="47,163,0,0" 
                VerticalAlignment="Top"/>
 
         <Label 
-               Content="Label" 
+               Content="Geburtsdatum:" 
+               Width="100"
                HorizontalAlignment="Left" 
-               Margin="40,230,0,0" 
+               Margin="47,203,0,0" 
                VerticalAlignment="Top"/>
+
+        <TextBox x:Name="textboxFirstname"
+                 HorizontalAlignment="Left" 
+                 Margin="177,48,0,0" 
+                 TextWrapping="Wrap" 
+                 Text="" 
+                 VerticalAlignment="Top" 
+                 Width="120"/>
+
+        <TextBox x:Name="textboxLastname"
+                 HorizontalAlignment="Left" 
+                 Margin="177,88,0,0" 
+                 TextWrapping="Wrap" 
+                 Text="" 
+                 VerticalAlignment="Top" 
+                 Width="120"/>
+
+        <TextBox x:Name="textboxEmail"
+                 HorizontalAlignment="Left" 
+                 Margin="177,128,0,0" 
+                 TextWrapping="Wrap" 
+                 Text="" 
+                 VerticalAlignment="Top" 
+                 Width="120"/>
+
+        <RadioButton x:Name="radioButtonMale"
+                     GroupName="radioButtonGender"
+                     Content="M" 
+                     HorizontalAlignment="Left" 
+                     Margin="187,168,0,0" 
+                     VerticalAlignment="Top"/>
+
+        <RadioButton x:Name="radioButtonFemale"
+                     GroupName="radioButtonGender"
+                     Content="W" 
+                     HorizontalAlignment="Left" 
+                     Margin="247,168,0,0" 
+                     VerticalAlignment="Top"/>
+
+        <DatePicker x:Name="datePicker"
+                    HorizontalAlignment="Left" 
+                    Margin="177,208,0,0" 
+                    VerticalAlignment="Top"/>
+
+        <Button x:Name="saveButton"
+                Content="Speichern" 
+                Width="90"
+                HorizontalAlignment="Left"
+                Margin="73,263,0,0" 
+                VerticalAlignment="Top" Click="saveButton_Click"/>
+
+        <Button x:Name="cancelButton"
+                Content="Abbrechen" 
+                Width="90"
+                HorizontalAlignment="Left"
+                Margin="203,263,0,0" 
+                VerticalAlignment="Top" Click="cancelButton_Click"/>
 
 
     </Grid>

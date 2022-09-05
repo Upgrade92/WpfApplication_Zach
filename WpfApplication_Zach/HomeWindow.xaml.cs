@@ -21,7 +21,17 @@ namespace WpfApplication_Zach
 
         private void edit_Click(object sender, RoutedEventArgs e)
         {
-            new EditUser().Show();
+            if (listBox.SelectedItem != null)
+            {
+                string firstname = listBox.SelectedItem.ToString().Split(' ')[0];
+                string lastname = listBox.SelectedItem.ToString().Split(' ')[1];
+
+                DataSet ds = new DatabaseHelper().DoQuery($"SELECT * FROM [TablePeople] WHERE Firstname = '{firstname}' AND Lastname ='{lastname}'");
+                new EditUser(ds.Tables[0].Rows[0]).Show();
+
+
+            }
+
         }
 
         private void deleteButton_Click(object sender, RoutedEventArgs e)
@@ -72,34 +82,23 @@ namespace WpfApplication_Zach
             string firstname = listBox.SelectedItem.ToString().Split(' ')[0];
             string lastname = listBox.SelectedItem.ToString().Split(' ')[1];
 
-                DataSet ds = new DatabaseHelper().DoQuery($"SELECT * FROM [TablePeople] WHERE Firstname = '{firstname}' AND Lastname ='{lastname}'");                
-
-                foreach (DataRow dr in ds.Tables[0].Rows)
-                {
-                    listView.Items.Add($"Anrede: \t\t{GetTitle(Convert.ToString(dr[4].ToString()))}");
-                    listView.Items.Add($"Vorname: \t{firstname}");
-                    listView.Items.Add($"Nachname:\t{lastname}");
-                    listView.Items.Add($"");
-                    listView.Items.Add($"E-Mail:  \t\t{Convert.ToString(dr[3].ToString())}");
-                    listView.Items.Add($"Geboren: \t{Convert.ToString(dr[5].ToString().Split(' ')[0])}");
-
-                }           
+                DataSet ds = new DatabaseHelper().DoQuery($"SELECT * FROM [TablePeople] WHERE Firstname = '{firstname}' AND Lastname ='{lastname}'");
+                FillTable(ds);
+                         
             }
         }
 
-        private string GetTitle(string gender)
+        private void FillTable(DataSet ds)
         {
-            if (gender.ToLower().Equals("weiblich"))
+            foreach (DataRow dr in ds.Tables[0].Rows)
             {
-                return "Frau";
-            }
-            else if (gender.ToLower().Equals("männlich"))
-            {
-                return "Herr";
-            }
-            else
-            {
-                return "Anrede";
+                listView.Items.Add($"Anrede: \t\t{new Helper().GetTitle(Convert.ToString(dr[4].ToString()))}");
+                listView.Items.Add($"Vorname: \t{Convert.ToString(dr[1].ToString())}");
+                listView.Items.Add($"Nachname:\t{Convert.ToString(dr[2].ToString())}");
+                listView.Items.Add($"");
+                listView.Items.Add($"E-Mail:  \t\t{Convert.ToString(dr[3].ToString())}");
+                listView.Items.Add($"Geboren: \t{Convert.ToString(dr[5].ToString().Split(' ')[0])}");
+
             }
         }
 

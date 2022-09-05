@@ -80,26 +80,22 @@ namespace WpfApplication_Zach
             string username = usernameBox.Text.ToString();
             string password = passwordBox.Password.ToString();
 
+                DataSet ds = new DatabaseHelper().DoQuery("SELECT * FROM [Table] Where Username = '" + username + "' AND Password = '" + password + "'");
             try
             {
-                DataSet ds = new DatabaseHelper().DoQuery("SELECT * FROM [Table] Where Username = '" + username + "' AND Password = '" + password + "'");                               
-                try
-                {                    
-                    if (ds.Tables.Count == 1)
-                    {
-                        MessageBox.Show("Login successfully!\n");
-                        MainWindow mainWindow = this;
-                        mainWindow.Hide();
-                        HomeWindow home = new HomeWindow();
-                        home.Show();
-                    }
-                }
-                catch (IndexOutOfRangeException)
+                if (ds.Tables.Count == 1)
                 {
-                    MessageBox.Show("invalid credentials!");
+                    MessageBox.Show("Login successfully!\n");
+                    MainWindow mainWindow = this;
+                    mainWindow.Hide();
+                    HomeWindow home = new HomeWindow();
+                    home.Show();
                 }
             }
-            catch(SqlException)  {  }
+            catch (IndexOutOfRangeException)
+            {
+                MessageBox.Show("invalid credentials!");
+            }
         }
     }
 }
