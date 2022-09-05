@@ -74,7 +74,7 @@ namespace WpfApplication_Zach
             }
         }
 
-        private void cancelButton_Click(object sender, RoutedEventArgs e)
+        private void closeButtonclick(object sender, RoutedEventArgs e)
         {
             System.Windows.Application.Current.Shutdown();
         }

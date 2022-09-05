@@ -58,7 +58,7 @@ namespace WpfApplication_Zach
             catch (NullReferenceException) { }
         }
 
-        private void exitButton_Click(object sender, RoutedEventArgs e)
+        private void logoutButton_Click(object sender, RoutedEventArgs e)
         {
             //System.Windows.Application.Current.Shutdown();
             this.Close();
@@ -75,6 +75,7 @@ namespace WpfApplication_Zach
             {
                 listBox.Items.Add(Convert.ToString(dr[1].ToString()) + " " + Convert.ToString(dr[2].ToString()));
             }
+            labelTimestamp.Content = $"Datensatz erstellt am: {DateTime.Today.Date.ToString("dd/MM/yyyy")}";
         }
 
         private void listBox_SelectionChanged(object sender, SelectionChangedEventArgs e)

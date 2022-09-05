@@ -36,7 +36,7 @@ namespace WpfApplication_Zach
             SaveNewUser();
         }
 
-        private void CancelButton_Click(object sender, RoutedEventArgs e)
+        private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
@@ -104,7 +104,21 @@ namespace WpfApplication_Zach
                 return false;
             }
         }
-        
+
+        private bool TextboxFilled(TextBox txt,bool validation)
+        {
+            if (txt.Text != ""&& new Helper().EmailValidation(textBoxEmail,textBoxEmail.Text))
+            {
+                txt.BorderBrush = Brushes.Transparent;
+                return true;
+            }
+            else
+            {
+                txt.BorderBrush = Brushes.Red;
+                return false;
+            }
+        }
+
 
         private bool RadioButtonChecked()
         {
@@ -124,7 +138,7 @@ namespace WpfApplication_Zach
 
         private bool DatePicked()
         {
-            if (birthdatePicker.SelectedDate != null)
+            if (birthdatePicker.SelectedDate != null && new Helper().validBirthdate(birthdatePicker))
             {
                 birthdatePicker.BorderBrush = Brushes.Transparent;
                 return true;
@@ -139,7 +153,7 @@ namespace WpfApplication_Zach
         {
             bool check1 = TextboxFilled(textBoxFirstname);
             bool check2 = TextboxFilled(textBoxLastname);
-            bool check3 = TextboxFilled(textBoxEmail);
+            bool check3 = TextboxFilled(textBoxEmail) && new Helper().EmailValidation(textBoxEmail ,textBoxEmail.Text);
             bool check4 = RadioButtonChecked();
             bool check5 = DatePicked();
             
@@ -153,6 +167,16 @@ namespace WpfApplication_Zach
         private void textBoxFirstname_TextChanged(object sender, TextChangedEventArgs e)
         {
             new Helper().TextBoxChanged(textBoxFirstname, labelFirstname);
+        }
+
+        private void textBoxLastname_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            new Helper().TextBoxChanged(textBoxLastname, labelLastname);
+        }
+
+        private void textBoxEmail_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            new Helper().TextBoxChanged(textBoxEmail, labelEmail);
         }
     }
 }

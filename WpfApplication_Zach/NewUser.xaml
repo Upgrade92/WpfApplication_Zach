@@ -34,8 +34,8 @@
                  RenderTransformOrigin="0.527,-0.572"
                  ToolTip="Enter first name"
                  TextChanged="textBoxFirstname_TextChanged"/>
-                            
-        
+
+
         <TextBox x:Name="textBoxLastname"
                  HorizontalAlignment="Left" 
                  Margin="50,100,0,0" 
@@ -43,7 +43,8 @@
                  Text="" 
                  VerticalAlignment="Top" 
                  Width="120"
-                 ToolTip="Enter last name"/>
+                 ToolTip="Enter last name"
+                 TextChanged="textBoxLastname_TextChanged"/>
 
         <TextBox x:Name="textBoxEmail"
                  HorizontalAlignment="Left" 
@@ -52,26 +53,32 @@
                  Text="" 
                  VerticalAlignment="Top" 
                  Width="120"
-                 ToolTip="Enter your mail address"/>
+                 ToolTip="Enter your mail address"
+                 TextChanged="textBoxEmail_TextChanged"/>
 
         <RadioButton GroupName="radioButtonGender"
                      x:Name="radioButtonMale"
                      Content="M" 
-                     HorizontalAlignment="Left" Margin="136,152,0,0" 
-                     VerticalAlignment="Top"  Checked="radioButtonMale_Checked"/>
+                     HorizontalAlignment="Left" 
+                     Margin="136,152,0,0" 
+                     VerticalAlignment="Top"  
+                     Checked="radioButtonMale_Checked"/>
 
         <RadioButton GroupName="radioButtonGender"
                      x:Name="radioButtonFemale"
                      Content="W" 
-                     HorizontalAlignment="Left" Margin="136,169,0,0" 
+                     HorizontalAlignment="Left" 
+                     Margin="136,169,0,0" 
                      VerticalAlignment="Top" 
-                     RenderTransformOrigin="1.611,0.716" Checked="radioButtonFemale_Checked"/>
+                     RenderTransformOrigin="1.611,0.716" 
+                     Checked="radioButtonFemale_Checked"/>
 
         <DatePicker  x:Name="birthdatePicker"
                      HorizontalAlignment="Left"
                      Margin="50,188,0,0" 
                      VerticalAlignment="Top"           
-                     Text="Geburtsdatum auswählen"/>
+                     Text="Geburtsdatum auswählen" 
+                     />
 
         <Button x:Name="saveButton"
                 Content="Save" 
@@ -79,25 +86,27 @@
                 Margin="50,259,0,0" 
                 VerticalAlignment="Top" 
                 RenderTransformOrigin="1.001,0.737" 
-                Width="60" Click="SaveButton_Click"/>
+                Width="60" 
+                Click="SaveButton_Click"/>
 
         <Button x:Name="cancelButton"
-                Content="Cancel" 
+                Content="Close" 
                 HorizontalAlignment="Left" 
                 Margin="110,259,0,0" 
                 VerticalAlignment="Top" 
-                Width="60" Click="CancelButton_Click"/>
+                Width="60" 
+                Click="CloseButton_Click"/>
 
         <Label x:Name="labelError"
                Content="ERROR!" 
                Foreground="Red"
                HorizontalContentAlignment="Center"
-               HorizontalAlignment="Center" 
-               Margin="0,29,0,0" 
+               HorizontalAlignment="Left" 
+               Margin="350,27,0,0" 
                VerticalAlignment="Top" 
                Width="79" 
-               FontSize="14" Visibility="Visible"/>
-        
+               FontSize="14"/>
+
         <Label  x:Name="labelFirstname"
                 Content="Vorname" 
                 HorizontalAlignment="Left" 

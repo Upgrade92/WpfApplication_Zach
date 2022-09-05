@@ -64,14 +64,14 @@
                 Click="loginButton_Click"
         />
 
-        <Button x:Name="cancelButton" 
+        <Button x:Name="closeButton" 
                 Grid.Column="1"
-                Content="Cancel" 
+                Content="Close" 
                 HorizontalAlignment="Left" 
                 Margin="304,211,0,0" 
                 VerticalAlignment="Top"
                 Width="80" 
-                Click="cancelButton_Click" 
+                Click="closeButtonclick" 
         />
 
         <CheckBox x:Name="passwordCheckBox"  

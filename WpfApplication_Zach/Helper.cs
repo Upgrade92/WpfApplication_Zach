@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows;
+using System.Text.RegularExpressions;
 
 namespace WpfApplication_Zach
 {
@@ -21,6 +22,23 @@ namespace WpfApplication_Zach
                 label.Visibility = Visibility.Hidden;
             }
         }
+        public bool EmailValidation(TextBox text, string mail)
+        {
+            if (text.Text.Length > 4)
+            {
+                Regex mailRegex = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$", RegexOptions.IgnoreCase);
+                return mailRegex.IsMatch(mail);
+            }
+            else return false;
+        }
 
+        public bool validBirthdate(DatePicker birthday)
+        {
+            if (DateTime.Today.Year - birthday.SelectedDate.Value.Year > 17)
+            {
+                return true;
+            }
+            else return false;
+        }
     }
 }

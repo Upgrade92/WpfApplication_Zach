@@ -16,7 +16,10 @@
         <ListBox x:Name="listBox"
                  d:ItemsSource="{d:SampleData ItemCount=5}" 
                  Margin="0,0,600,0"
-                 Padding="30" Background="#FF0E2763" FontSize="16" SelectionChanged="listBox_SelectionChanged"
+                 Padding="30" 
+                 Background="#FF0E2763" 
+                 FontSize="16" 
+                 SelectionChanged="listBox_SelectionChanged"
                  />
         <ListView x:Name="listView"
                   d:ItemsSource="{d:SampleData ItemCount=5}" 
@@ -33,7 +36,8 @@
                 Margin="630,37,0,0" 
                 VerticalAlignment="Top" 
                 Width="140" 
-                Height="35" Click="newButton_Click"
+                Height="35" 
+                Click="newButton_Click"
                 
         />
         <Button x:Name="edit" 
@@ -42,7 +46,8 @@
                 Margin="630,77,0,0" 
                 VerticalAlignment="Top" 
                 Width="140" 
-                Height="35" Click="edit_Click"
+                Height="35"
+                Click="edit_Click"
                 
         />
         <Button x:Name="deleteButton" 
@@ -51,7 +56,8 @@
                 Margin="630,117,0,0" 
                 VerticalAlignment="Top" 
                 Width="140" 
-                Height="35" Click="deleteButton_Click"
+                Height="35" 
+                Click="deleteButton_Click"
                 
         />
         <Button x:Name="refreshButton" 
@@ -60,17 +66,25 @@
                 Margin="630,157,0,0" 
                 VerticalAlignment="Top" 
                 Width="140" 
-                Height="35" Click="LoadList"
+                Height="35" 
+                Click="LoadList"
                 
         />
-        <Button x:Name="exitButton" 
-                Content="Exit" 
+        <Button x:Name="logoutButton" 
+                Content="Logout" 
                 HorizontalAlignment="Left" 
                 Margin="630,372,0,0" 
                 VerticalAlignment="Top" 
                 Width="140" 
-                Height="35" Click="exitButton_Click"
+                Height="35" 
+                Click="logoutButton_Click"
                 
         />
+        <Label x:Name="labelTimestamp"
+               Content="Datensatz erstellt am:" 
+               HorizontalAlignment="Left" 
+               Margin="232,349,0,0" 
+               VerticalAlignment="Top" 
+               Foreground="Red"/>
     </Grid>
 </Window>
