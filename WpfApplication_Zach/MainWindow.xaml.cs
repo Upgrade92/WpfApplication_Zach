@@ -68,7 +68,7 @@ namespace WpfApplication_Zach
             string username = usernameBox.Text.ToString();
             string password = passwordBox.Password.ToString();
 
-                DataSet ds = new DatabaseHelper().DoQuery("SELECT * FROM [Table] " +
+            DataSet ds = new DatabaseHelper().DoQuery("SELECT * FROM [Table] " +
                                                           "Where Username = '" + username + "' " +
                                                           "AND Password = '" + password + "'");
             try
