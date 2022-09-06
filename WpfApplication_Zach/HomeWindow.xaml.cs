@@ -37,19 +37,22 @@ namespace WpfApplication_Zach
         {
             try
             {
-                string firstname = listBox.SelectedItem.ToString().Split(' ')[0];
-                string lastname = listBox.SelectedItem.ToString().Split(' ')[1];
+                if (listBox.SelectedItem != null)
+                {
+                    string firstname = listBox.SelectedItem.ToString().Split(' ')[0];
+                    string lastname = listBox.SelectedItem.ToString().Split(' ')[1];
 
-                if (MessageBox.Show($"You Sure you want to delete {firstname} {lastname}?", "SafeDelete", MessageBoxButton.OKCancel) == MessageBoxResult.OK)
-                {             
-                    new DatabaseHelper().DoNonQuery($"DELETE FROM [TablePeople] " +
-                                                    $"WHERE Firstname = '{firstname}' " +
-                                                    $"AND Lastname ='{lastname}'");
-                    try
+                    if (MessageBox.Show($"You Sure you want to delete {firstname} {lastname}?", "SafeDelete", MessageBoxButton.OKCancel) == MessageBoxResult.OK)
                     {
-                        listBox.Items.RemoveAt(listBox.Items.IndexOf(listBox.SelectedItem));
+                        new DatabaseHelper().DoNonQuery($"DELETE FROM [TablePeople] " +
+                                                        $"WHERE Firstname = '{firstname}' " +
+                                                        $"AND Lastname ='{lastname}'");
+                        try
+                        {
+                            listBox.Items.RemoveAt(listBox.Items.IndexOf(listBox.SelectedItem));
+                        }
+                        catch (System.ArgumentOutOfRangeException) { }
                     }
-                    catch (System.ArgumentOutOfRangeException) { }                    
                 }
             }
             catch (NullReferenceException) { }

@@ -60,7 +60,7 @@ namespace WpfApplication_Zach
         {
             bool check1 = new Helper().TextboxFilled(textboxFirstname);
             bool check2 = new Helper().TextboxFilled(textboxLastname);
-            bool check3 = new Helper().TextboxFilled(textboxEmail,new Helper().EmailValidation(textboxEmail);
+            bool check3 = new Helper().TextboxFilled(textboxEmail,new Helper().EmailValidation(textboxEmail));
             bool check4 = new Helper().DatePicked(datePicker);
 
             if(check1 && check2 && check3 && check4)
