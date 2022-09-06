@@ -11,7 +11,7 @@ namespace WpfApplication_Zach
         public HomeWindow()
         {
             InitializeComponent();
-            LoadList();
+            GetList();
         } 
 
         private void newButton_Click(object sender, RoutedEventArgs e)
@@ -29,7 +29,7 @@ namespace WpfApplication_Zach
                 DataSet ds = new DatabaseHelper().DoQuery($"SELECT * FROM [TablePeople] " +
                                                           $"WHERE Firstname = '{firstname}' " +
                                                           $"AND Lastname ='{lastname}'");
-                new EditUser(ds.Tables[0].Rows[0]).Show();
+                new EditUser(ds.Tables[0].Rows[0],this).Show();
             }
         }
 
@@ -66,7 +66,7 @@ namespace WpfApplication_Zach
             main.Show();
         }
 
-        private void LoadList()
+        private void GetList()
         {
             listBox.Items.Clear();            
             DataSet ds = new DatabaseHelper().DoQuery("SELECT * FROM [TablePeople]");
@@ -76,6 +76,11 @@ namespace WpfApplication_Zach
                 listBox.Items.Add(Convert.ToString(dr[1].ToString()) + " " + Convert.ToString(dr[2].ToString()));
             }
             labelTimestamp.Content = $"Datensatz erstellt am: {DateTime.Today.Date.ToString("dd/MM/yyyy")}";
+        }
+
+        public static void DoRefresh(HomeWindow homeWindow)
+        {
+            homeWindow.GetList();
         }
 
         private void listBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -108,7 +113,7 @@ namespace WpfApplication_Zach
 
         private void LoadList(object sender, RoutedEventArgs e)
         {
-            LoadList();
+            GetList();
         }
     }
 }

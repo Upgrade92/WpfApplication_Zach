@@ -7,9 +7,11 @@ namespace WpfApplication_Zach
     public partial class EditUser : Window
     {
         int id;
-        public EditUser(DataRow dr)
+        HomeWindow homeWindow;
+        public EditUser(DataRow dr,HomeWindow window)
         {
             InitializeComponent();
+            homeWindow = window;
             id = Convert.ToInt32(dr[0]);
             textboxFirstname.Text = Convert.ToString(dr[1].ToString());
             textboxLastname.Text = Convert.ToString(dr[2].ToString());
@@ -54,6 +56,7 @@ namespace WpfApplication_Zach
                                             $"Geburtsdatum = '{datePicker.SelectedDate.Value.Date.ToString()}' " +
                                             $"WHERE ID = '{id}'");
             MessageBox.Show("Änderungen übernommen!");
+            HomeWindow.DoRefresh(homeWindow);
         }
 
         private bool CheckAll()
