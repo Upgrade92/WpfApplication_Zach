@@ -1,19 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace WpfApplication_Zach
 {
@@ -80,12 +68,14 @@ namespace WpfApplication_Zach
             string username = usernameBox.Text.ToString();
             string password = passwordBox.Password.ToString();
 
-                DataSet ds = new DatabaseHelper().DoQuery("SELECT * FROM [Table] Where Username = '" + username + "' AND Password = '" + password + "'");
+                DataSet ds = new DatabaseHelper().DoQuery("SELECT * FROM [Table] " +
+                                                          "Where Username = '" + username + "' " +
+                                                          "AND Password = '" + password + "'");
             try
             {
                 if (ds.Tables.Count == 1)
                 {
-                    MessageBox.Show("Login successfully!\n");
+                    MessageBox.Show("Login erfolgreich!\n");
                     MainWindow mainWindow = this;
                     mainWindow.Hide();
                     HomeWindow home = new HomeWindow();
@@ -94,7 +84,7 @@ namespace WpfApplication_Zach
             }
             catch (IndexOutOfRangeException)
             {
-                MessageBox.Show("invalid credentials!");
+                MessageBox.Show("Benutzerdaten unbekannt!");
             }
         }
     }

@@ -26,12 +26,11 @@ namespace WpfApplication_Zach
                 string firstname = listBox.SelectedItem.ToString().Split(' ')[0];
                 string lastname = listBox.SelectedItem.ToString().Split(' ')[1];
 
-                DataSet ds = new DatabaseHelper().DoQuery($"SELECT * FROM [TablePeople] WHERE Firstname = '{firstname}' AND Lastname ='{lastname}'");
+                DataSet ds = new DatabaseHelper().DoQuery($"SELECT * FROM [TablePeople] " +
+                                                          $"WHERE Firstname = '{firstname}' " +
+                                                          $"AND Lastname ='{lastname}'");
                 new EditUser(ds.Tables[0].Rows[0]).Show();
-
-
             }
-
         }
 
         private void deleteButton_Click(object sender, RoutedEventArgs e)
@@ -43,7 +42,9 @@ namespace WpfApplication_Zach
 
                 if (MessageBox.Show($"You Sure you want to delete {firstname} {lastname}?", "SafeDelete", MessageBoxButton.OKCancel) == MessageBoxResult.OK)
                 {             
-                    new DatabaseHelper().DoNonQuery($"DELETE FROM [TablePeople] WHERE Firstname = '{firstname}' AND Lastname ='{lastname}'");
+                    new DatabaseHelper().DoNonQuery($"DELETE FROM [TablePeople] " +
+                                                    $"WHERE Firstname = '{firstname}' " +
+                                                    $"AND Lastname ='{lastname}'");
                     try
                     {
                         listBox.Items.RemoveAt(listBox.Items.IndexOf(listBox.SelectedItem));
@@ -82,9 +83,10 @@ namespace WpfApplication_Zach
             string firstname = listBox.SelectedItem.ToString().Split(' ')[0];
             string lastname = listBox.SelectedItem.ToString().Split(' ')[1];
 
-                DataSet ds = new DatabaseHelper().DoQuery($"SELECT * FROM [TablePeople] WHERE Firstname = '{firstname}' AND Lastname ='{lastname}'");
-                FillTable(ds);
-                         
+                DataSet ds = new DatabaseHelper().DoQuery($"SELECT * FROM [TablePeople] " +
+                                                          $"WHERE Firstname = '{firstname}' " +
+                                                          $"AND Lastname ='{lastname}'");
+                FillTable(ds);                         
             }
         }
 
@@ -98,7 +100,6 @@ namespace WpfApplication_Zach
                 listView.Items.Add($"");
                 listView.Items.Add($"E-Mail:  \t\t{Convert.ToString(dr[3].ToString())}");
                 listView.Items.Add($"Geboren: \t{Convert.ToString(dr[5].ToString().Split(' ')[0])}");
-
             }
         }
 

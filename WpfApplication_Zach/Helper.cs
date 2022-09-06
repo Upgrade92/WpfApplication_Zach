@@ -110,6 +110,8 @@ namespace WpfApplication_Zach
             }
         }
 
+
+
             public string GetTitle(string gender)
             {
                 if (gender.ToLower().Equals("weiblich"))

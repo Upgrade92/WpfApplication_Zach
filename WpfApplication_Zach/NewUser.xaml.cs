@@ -1,19 +1,13 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Media;
 
 namespace WpfApplication_Zach
 {
-    /// <summary>
-    /// Interaction logic for NewUser.xaml
-    /// </summary>
-    public partial class NewUser : Window 
+     public partial class NewUser : Window 
     {
         public NewUser()
         {
-            InitializeComponent();
-            
-            
+            InitializeComponent();             
         }
 
         private void SaveButton_Click(object sender, RoutedEventArgs e)
@@ -41,9 +35,7 @@ namespace WpfApplication_Zach
                 comboBoxTitle.SelectedIndex = 2;
             }
         }
-
         
-
         private void SaveNewUser()
         {
             string firstname = textBoxFirstname.Text;
@@ -54,17 +46,16 @@ namespace WpfApplication_Zach
 
             if (CheckAll())
             {             
-                new DatabaseHelper().DoNonQuery($"INSERT INTO [TablePeople] (Firstname,Lastname,[E-Mail],Geschlecht, Geburtsdatum) VALUES('{firstname}','{lastname}','{email}','{gender}','{birthdate}')");
-                MessageBox.Show("New User saved!");
+                new DatabaseHelper().DoNonQuery($"INSERT INTO [TablePeople] " +
+                                                $"(Firstname,Lastname,[E-Mail],Geschlecht, Geburtsdatum) " +
+                                                $"VALUES('{firstname}','{lastname}','{email}','{gender}','{birthdate}')");
+                MessageBox.Show("Neuer User erfolgreich angelegt!");
             }
             else
             {
                 MessageBox.Show("Nope");
-            }
-            
+            }            
         }
-    
-
         
         private bool CheckAll()
         {
