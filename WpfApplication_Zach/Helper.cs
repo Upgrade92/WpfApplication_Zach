@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows;
 using System.Text.RegularExpressions;
@@ -58,6 +54,49 @@ namespace WpfApplication_Zach
             }
         }
 
+        public bool TextboxFilled(TextBox txt)
+        {
+            if (txt.Text != "")
+            {
+                txt.BorderBrush = Brushes.Transparent;
+                return true;
+            }
+            else
+            {
+                txt.BorderBrush = Brushes.Red;
+                return false;
+            }
+        }
+        public bool TextboxFilled(TextBox txt, bool validation)
+        {
+            if (txt.Text != "" && EmailValidation(txt))
+            {
+                txt.BorderBrush = Brushes.Transparent;
+                return true;
+            }
+            else
+            {
+                txt.BorderBrush = Brushes.Red;
+                return false;
+            }
+        }
+
+        public bool TextboxFilled(TextBox txt, bool validation, Label label)
+        {
+            if (txt.Text != "" && EmailValidation(txt))
+            {
+                label.Visibility = Visibility.Hidden;
+                txt.BorderBrush = Brushes.Transparent;
+                return true;
+            }
+            else
+            {
+                label.Visibility = Visibility.Visible;
+                txt.BorderBrush = Brushes.Red;
+                return false;
+            }
+        }
+
         public bool RadioButtonChecked(Label errormsg, Label label,RadioButton radioButtonMale, RadioButton radioButtonFemale)
         {
             if (radioButtonMale.IsChecked == true || radioButtonFemale.IsChecked == true)
@@ -94,39 +133,35 @@ namespace WpfApplication_Zach
             }
         }
 
-        public bool TextboxFilled(TextBox txt, bool validation, Label label)
+        public bool DatePicked(DatePicker date)
         {
-            if (txt.Text != "" && EmailValidation(txt))
+            if (date.SelectedDate != null && validBirthdate(date))
             {
-                label.Visibility = Visibility.Hidden;
-                txt.BorderBrush = Brushes.Transparent;
+                date.BorderBrush = Brushes.Transparent;
                 return true;
             }
             else
             {
-                label.Visibility = Visibility.Visible;
-                txt.BorderBrush = Brushes.Red;
+                date.BorderBrush = Brushes.Red;
                 return false;
             }
         }
 
-
-
-            public string GetTitle(string gender)
+        public string GetTitle(string gender)
+        {
+            if (gender.ToLower().Equals("weiblich"))
             {
-                if (gender.ToLower().Equals("weiblich"))
-                {
-                    return "Frau";
-                }
-                else if (gender.ToLower().Equals("männlich"))
-                {
-                    return "Herr";
-                }
-                else
-                {
-                    return "Anrede";
-                }
+                return "Frau";
             }
+            else if (gender.ToLower().Equals("männlich"))
+            {
+                return "Herr";
+            }
+            else
+            {
+                return "Anrede";
+            }
+        }
 
         public string RadioButtonToString(RadioButton male, RadioButton female)
         {
@@ -142,6 +177,5 @@ namespace WpfApplication_Zach
             }
             return gender;
         }
-
     }
 }

@@ -16,13 +16,14 @@
                   VerticalAlignment="Top" 
                   Width="120" 
                   IsEnabled="False">
-            <ComboBoxItem x:Name="comboBoxItem1" Content="Anrede" IsSelected="True"/>
-            <ComboBoxItem x:Name="comboBoxItem2" Content="Herr" />
-            <ComboBoxItem x:Name="comboBoxItem3" Content="Frau" />
+            <ComboBoxItem x:Name="comboBoxItem1" 
+                          Content="Anrede" 
+                          IsSelected="True"/>
+            <ComboBoxItem x:Name="comboBoxItem2" 
+                          Content="Herr" />
+            <ComboBoxItem x:Name="comboBoxItem3" 
+                          Content="Frau" />
         </ComboBox>
-
-
-
 
         <TextBox x:Name="textBoxFirstname"
                  HorizontalAlignment="Left" 
@@ -33,9 +34,8 @@
                  Width="120" 
                  RenderTransformOrigin="0.527,-0.572"
                  ToolTip="Enter first name"
-                 TextChanged="textBoxFirstname_TextChanged"/>
-
-
+                 TextChanged="textBoxFirstname_TextChanged"
+                 />
         <TextBox x:Name="textBoxLastname"
                  HorizontalAlignment="Left" 
                  Margin="50,100,0,0" 
@@ -44,8 +44,8 @@
                  VerticalAlignment="Top" 
                  Width="120"
                  ToolTip="Enter last name"
-                 TextChanged="textBoxLastname_TextChanged"/>
-
+                 TextChanged="textBoxLastname_TextChanged"
+                 />
         <TextBox x:Name="textBoxEmail"
                  HorizontalAlignment="Left" 
                  Margin="50,130,0,0" 
@@ -54,7 +54,8 @@
                  VerticalAlignment="Top" 
                  Width="120"
                  ToolTip="Enter your mail address"
-                 TextChanged="textBoxEmail_TextChanged"/>
+                 TextChanged="textBoxEmail_TextChanged"
+                 />
 
         <RadioButton GroupName="radioButtonGender"
                      x:Name="radioButtonMale"
@@ -62,7 +63,8 @@
                      HorizontalAlignment="Left" 
                      Margin="136,152,0,0" 
                      VerticalAlignment="Top"  
-                     Checked="radioButtonMale_Checked"/>
+                     Checked="radioButtonMale_Checked"
+                     />
 
         <RadioButton GroupName="radioButtonGender"
                      x:Name="radioButtonFemale"
@@ -71,15 +73,14 @@
                      Margin="136,169,0,0" 
                      VerticalAlignment="Top" 
                      RenderTransformOrigin="1.611,0.716" 
-                     Checked="radioButtonFemale_Checked"/>
-
+                     Checked="radioButtonFemale_Checked"
+                     />
         <DatePicker  x:Name="birthdatePicker"
                      HorizontalAlignment="Left"
                      Margin="50,188,0,0" 
                      VerticalAlignment="Top"           
                      Text="Geburtsdatum auswählen" 
                      />
-
         <Button x:Name="saveButton"
                 Content="Speichern" 
                 HorizontalAlignment="Left" 
@@ -87,16 +88,16 @@
                 VerticalAlignment="Top" 
                 RenderTransformOrigin="1.001,0.737" 
                 Width="60" 
-                Click="SaveButton_Click"/>
-
+                Click="SaveButton_Click"
+                />
         <Button x:Name="cancelButton"
                 Content="Schließen" 
                 HorizontalAlignment="Left" 
                 Margin="110,259,0,0" 
                 VerticalAlignment="Top" 
                 Width="60" 
-                Click="CloseButton_Click"/>
-
+                Click="CloseButton_Click"
+                />
         <Label x:Name="labelErrorFirstname"
                Content="Darf nicht leer sein!" 
                Foreground="Red"
@@ -109,7 +110,6 @@
                RenderTransformOrigin="0.405,-0.383"
                Visibility="Hidden"
                />
-
         <Label x:Name="labelErrorLastname"
                Content="Darf nicht leer sein!" 
                Foreground="Red"
@@ -122,7 +122,6 @@
                RenderTransformOrigin="0.405,-0.383"
                Visibility="Hidden"
                />
-
         <Label x:Name="labelErrorMail"
                Content="gültige E-Mail erdorderlich!" 
                Foreground="Red"
@@ -135,7 +134,6 @@
                RenderTransformOrigin="0.405,-0.383"
                Visibility="Hidden"
                />
-
         <Label x:Name="labelErrorGender"
                Content="Gibt nur die 2 ...!" 
                Foreground="Red"
@@ -148,7 +146,6 @@
                RenderTransformOrigin="0.405,-0.383"
                Visibility="Hidden"
                />
-
         <Label x:Name="labelErrorDate"
                Content="mindestens 18 Jahre alt!" 
                Foreground="Red"
@@ -161,31 +158,32 @@
                RenderTransformOrigin="0.405,-0.383"
                Visibility="Hidden"
                />
-
         <Label  x:Name="labelFirstname"
                 Content="Vorname" 
                 HorizontalAlignment="Left" 
                 Margin="111,66,0,0" 
-                VerticalAlignment="Top"/>
-
+                VerticalAlignment="Top"
+                />
         <Label  x:Name="labelLastname"
                 Content="Nachname" 
                 HorizontalAlignment="Left" 
                 Margin="103,96,0,0" 
-                VerticalAlignment="Top"/>
-
+                VerticalAlignment="Top"
+                />
         <Label  x:Name="labelGender"
                 Content="Geschlecht:" 
                 HorizontalAlignment="Left" 
                 Margin="50,154,0,0" 
-                VerticalAlignment="Top" BorderBrush="Transparent" Background="Transparent"/>
-
+                VerticalAlignment="Top" 
+                BorderBrush="Transparent" 
+                Background="Transparent"
+                />
         <Label  x:Name="labelEmail"
                 Content="E-Mail" 
                 HorizontalAlignment="Left" 
                 Margin="125,126,0,0" 
                 VerticalAlignment="Top" 
-                RenderTransformOrigin="-0.425,0.522"/>
-
+                RenderTransformOrigin="-0.425,0.522"
+                />
     </Grid>
 </Window>

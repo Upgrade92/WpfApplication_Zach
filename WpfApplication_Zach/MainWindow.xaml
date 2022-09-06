@@ -27,7 +27,6 @@
                  Height="25" 
                  TextChanged="UsernameBoxChangedHandler"
         />
-
         <TextBox x:Name="passwordTextBox" 
                  Grid.Column="1" 
                  HorizontalAlignment="Left"
@@ -39,9 +38,7 @@
                  TextChanged="PasswordTextChangedHandler" 
                  Visibility="Hidden"
                  KeyDown="OnKeyDownHandler"
-
         />
-
         <PasswordBox x:Name="passwordBox" 
                      Grid.Column="1" 
                      HorizontalAlignment="Left" 
@@ -52,7 +49,6 @@
                      PasswordChanged="PasswordChangedHandler"
                      KeyDown="OnKeyDownHandler"            
         />
-
         <Button x:Name="loginButton" 
                 Grid.Column="1" Content="Login" 
                 HorizontalAlignment="Center" 
@@ -61,7 +57,6 @@
                 Width="80" 
                 Click="loginButton_Click"
         />
-
         <Button x:Name="closeButton" 
                 Grid.Column="1"
                 Content="Beenden" 
@@ -71,7 +66,6 @@
                 Width="80" 
                 Click="closeButtonclick" 
         />
-
         <CheckBox x:Name="passwordCheckBox"  
                   Grid.Column="1" 
                   Content="Passwort anzeigen" 
@@ -82,7 +76,6 @@
                   Unchecked="CheckBox_Unchecked" 
                   Checked="CheckBox_Checked"
         />
-
         <Label x:Name="passwordBoxWatermark" 
                Grid.Column="1" 
                HorizontalContentAlignment="Center" 
@@ -92,7 +85,6 @@
                VerticalAlignment="Top"
                Width="62"
         />
-
         <Label x:Name="usernameWatermark"
                Grid.Column="1"
                HorizontalContentAlignment="Center" 

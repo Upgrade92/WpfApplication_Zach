@@ -37,8 +37,7 @@
                 VerticalAlignment="Top" 
                 Width="140" 
                 Height="35" 
-                Click="newButton_Click"
-                
+                Click="newButton_Click"                
         />
         <Button x:Name="edit" 
                 Content="Bearbeiten" 
@@ -47,8 +46,7 @@
                 VerticalAlignment="Top" 
                 Width="140" 
                 Height="35"
-                Click="edit_Click"
-                
+                Click="edit_Click"                
         />
         <Button x:Name="deleteButton" 
                 Content="Löschen" 
@@ -57,8 +55,7 @@
                 VerticalAlignment="Top" 
                 Width="140" 
                 Height="35" 
-                Click="deleteButton_Click"
-                
+                Click="deleteButton_Click"                
         />
         <Button x:Name="refreshButton" 
                 Content="Aktualisieren" 
@@ -67,8 +64,7 @@
                 VerticalAlignment="Top" 
                 Width="140" 
                 Height="35" 
-                Click="LoadList"
-                
+                Click="LoadList"                
         />
         <Button x:Name="logoutButton" 
                 Content="Logout" 
@@ -77,8 +73,7 @@
                 VerticalAlignment="Top" 
                 Width="140" 
                 Height="35" 
-                Click="logoutButton_Click"
-                
+                Click="logoutButton_Click"                
         />
         <Label x:Name="labelTimestamp"
                Content="Datensatz erstellt am:" 

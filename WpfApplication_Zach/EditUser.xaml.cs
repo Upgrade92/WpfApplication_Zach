@@ -20,7 +20,10 @@ namespace WpfApplication_Zach
 
         private void saveButton_Click(object sender, RoutedEventArgs e)
         {
-            UpdateUser();
+            if (CheckAll())
+            {
+                UpdateUser();
+            }
         }
 
         private void cancelButton_Click(object sender, RoutedEventArgs e)
@@ -51,6 +54,20 @@ namespace WpfApplication_Zach
                                             $"Geburtsdatum = '{datePicker.SelectedDate.Value.Date.ToString()}' " +
                                             $"WHERE ID = '{id}'");
             MessageBox.Show("Änderungen übernommen!");
+        }
+
+        private bool CheckAll()
+        {
+            bool check1 = new Helper().TextboxFilled(textboxFirstname);
+            bool check2 = new Helper().TextboxFilled(textboxLastname);
+            bool check3 = new Helper().TextboxFilled(textboxEmail,new Helper().EmailValidation(textboxEmail);
+            bool check4 = new Helper().DatePicked(datePicker);
+
+            if(check1 && check2 && check3 && check4)
+            {
+                return true;
+            }
+            else { return false; }
         }
     }
 }
