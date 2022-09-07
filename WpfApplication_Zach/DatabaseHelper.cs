@@ -14,7 +14,7 @@ namespace WpfApplication_Zach
     class DatabaseHelper
     {
 
-        private string connectionString = ConfigurationManager.ConnectionStrings["WpfApplication_Zach.Properties.Settings.DataBase1ConnectionString"].ConnectionString;
+        private string connectionString = ConfigurationManager.ConnectionStrings["WpfApplication_Zach.Properties.Settings.WPFApp_DataBaseConnectionString"].ConnectionString;
         
         public void DoNonQuery(string query)
         {

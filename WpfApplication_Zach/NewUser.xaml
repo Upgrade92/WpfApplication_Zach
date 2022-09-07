@@ -80,6 +80,7 @@
                      Margin="50,188,0,0" 
                      VerticalAlignment="Top"           
                      Text="Geburtsdatum auswählen" 
+                     SelectedDateFormat="Short"
                      />
         <Button x:Name="saveButton"
                 Content="Speichern" 

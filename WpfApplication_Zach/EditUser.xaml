@@ -87,7 +87,8 @@
                     HorizontalAlignment="Left" 
                     Margin="177,208,0,0" 
                     VerticalAlignment="Top"
-                    Width="150"/>
+                    Width="150"
+                    SelectedDateFormat="Short"/>
 
         <Button x:Name="saveButton"
                 Content="Speichern" 
