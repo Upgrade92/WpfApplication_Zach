@@ -47,7 +47,7 @@ namespace WpfApplication_Zach
             if (CheckAll())
             {             
                 new DatabaseHelper().DoNonQuery($"INSERT INTO [TablePeople] " +
-                                                $"(Firstname,Lastname,[E-Mail],Geschlecht, Geburtsdatum) " +
+                                                $"(Firstname,Lastname,[E-Mail],Geschlecht,Geburtstag) " +
                                                 $"VALUES('{firstname}','{lastname}','{email}','{gender}','{birthdate}')");
                 MessageBox.Show("Neuer User erfolgreich angelegt!");
             }

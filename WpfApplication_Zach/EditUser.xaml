@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApplication_Zach"
         mc:Ignorable="d"
-        Title="EditUser" Height="350" Width="350">
+        Title="EditUser" Height="350" Width="390">
     <Window.Background>
         <ImageBrush ImageSource="/user.jpg"/>
     </Window.Background>
@@ -51,7 +51,7 @@
                  TextWrapping="Wrap" 
                  Text="" 
                  VerticalAlignment="Top" 
-                 Width="120"/>
+                 Width="150"/>
 
         <TextBox x:Name="textboxLastname"
                  HorizontalAlignment="Left" 
@@ -59,7 +59,7 @@
                  TextWrapping="Wrap" 
                  Text="" 
                  VerticalAlignment="Top" 
-                 Width="120"/>
+                 Width="150"/>
 
         <TextBox x:Name="textboxEmail"
                  HorizontalAlignment="Left" 
@@ -67,26 +67,27 @@
                  TextWrapping="Wrap" 
                  Text="" 
                  VerticalAlignment="Top" 
-                 Width="120"/>
+                 Width="150"/>
 
         <RadioButton x:Name="radioButtonMale"
                      GroupName="radioButtonGender"
                      Content="M" 
                      HorizontalAlignment="Left" 
-                     Margin="187,168,0,0" 
+                     Margin="204,168,0,0" 
                      VerticalAlignment="Top"/>
 
         <RadioButton x:Name="radioButtonFemale"
                      GroupName="radioButtonGender"
                      Content="W" 
                      HorizontalAlignment="Left" 
-                     Margin="247,168,0,0" 
+                     Margin="264,168,0,0" 
                      VerticalAlignment="Top"/>
 
         <DatePicker x:Name="datePicker"
                     HorizontalAlignment="Left" 
                     Margin="177,208,0,0" 
-                    VerticalAlignment="Top"/>
+                    VerticalAlignment="Top"
+                    Width="150"/>
 
         <Button x:Name="saveButton"
                 Content="Speichern" 

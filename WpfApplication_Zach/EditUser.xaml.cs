@@ -53,7 +53,7 @@ namespace WpfApplication_Zach
                                             $"Lastname = '{textboxLastname.Text}'," +
                                             $"[E-Mail] = '{textboxEmail.Text}'," +
                                             $"Geschlecht = '{new Helper().RadioButtonToString(radioButtonMale,radioButtonFemale)}'," +
-                                            $"Geburtsdatum = '{datePicker.SelectedDate.Value.Date.ToString()}' " +
+                                            $"Geburtstag = '{datePicker.SelectedDate.Value.Date.ToString()}' " +
                                             $"WHERE ID = '{id}'");
             MessageBox.Show("Änderungen übernommen!");
             HomeWindow.DoRefresh(homeWindow);

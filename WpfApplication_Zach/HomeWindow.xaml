@@ -5,17 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApplication_Zach"
         mc:Ignorable="d"
-        Title="HomeWindow" Height="450" Width="800">
+        Title="HomeWindow" Height="450" Width="800" ResizeMode="NoResize">
     <Window.Background>
         <ImageBrush ImageSource="/Home.jpg"/>
     </Window.Background>
     <Grid >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="551*"/>
+            <ColumnDefinition Width="249*"/>
+        </Grid.ColumnDefinitions>
         <Grid.Background>
             <ImageBrush/>
         </Grid.Background>
         <ListBox x:Name="listBox"
                  d:ItemsSource="{d:SampleData ItemCount=5}" 
-                 Margin="0,0,600,0"
+                 Margin="0,0,351,0"
                  Padding="30" 
                  Background="#FF0E2763" 
                  FontSize="16" 
@@ -27,53 +31,53 @@
                   Padding="30"
                   Opacity=".7" IsEnabled="False" 
                   Grid.RowSpan="1" 
-                  Grid.ColumnSpan="1"
+                  Grid.ColumnSpan="2"
                   >
         </ListView>
         <Button x:Name="newButton" 
                 Content="Neu" 
                 HorizontalAlignment="Left" 
-                Margin="630,37,0,0" 
+                Margin="79,37,0,0" 
                 VerticalAlignment="Top" 
                 Width="140" 
                 Height="35" 
-                Click="newButton_Click"                
+                Click="newButton_Click" Grid.Column="1"                
         />
         <Button x:Name="edit" 
                 Content="Bearbeiten" 
                 HorizontalAlignment="Left" 
-                Margin="630,77,0,0" 
+                Margin="79,77,0,0" 
                 VerticalAlignment="Top" 
                 Width="140" 
                 Height="35"
-                Click="edit_Click"                
+                Click="edit_Click" Grid.Column="1"                
         />
         <Button x:Name="deleteButton" 
                 Content="Löschen" 
                 HorizontalAlignment="Left" 
-                Margin="630,117,0,0" 
+                Margin="79,117,0,0" 
                 VerticalAlignment="Top" 
                 Width="140" 
                 Height="35" 
-                Click="deleteButton_Click"                
+                Click="deleteButton_Click" Grid.Column="1"                
         />
         <Button x:Name="refreshButton" 
                 Content="Aktualisieren" 
                 HorizontalAlignment="Left" 
-                Margin="630,157,0,0" 
+                Margin="79,157,0,0" 
                 VerticalAlignment="Top" 
                 Width="140" 
                 Height="35" 
-                Click="LoadList"                
+                Click="LoadList" Grid.Column="1"                
         />
         <Button x:Name="logoutButton" 
                 Content="Logout" 
                 HorizontalAlignment="Left" 
-                Margin="630,372,0,0" 
+                Margin="79,372,0,0" 
                 VerticalAlignment="Top" 
                 Width="140" 
                 Height="35" 
-                Click="logoutButton_Click"                
+                Click="logoutButton_Click" Grid.Column="1"                
         />
         <Label x:Name="labelTimestamp"
                Content="Datensatz erstellt am:" 
