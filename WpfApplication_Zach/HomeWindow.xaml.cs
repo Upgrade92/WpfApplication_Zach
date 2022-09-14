@@ -43,7 +43,7 @@ namespace WpfApplication_Zach
                     string firstname = listBox.SelectedItem.ToString().Split(' ')[0];
                     string lastname = listBox.SelectedItem.ToString().Split(' ')[1];
 
-                    if (MessageBox.Show($"You Sure you want to delete {firstname} {lastname}?", "SafeDelete", MessageBoxButton.OKCancel) == MessageBoxResult.OK)
+                    if (MessageBox.Show($"Wollen Sie {firstname} {lastname} löschen?", "SafeDelete", MessageBoxButton.OKCancel) == MessageBoxResult.OK)
                     {
                         new DatabaseHelper().DoNonQuery($"DELETE FROM [TablePeople] " +
                                                         $"WHERE Firstname = '{firstname}' " +
@@ -52,11 +52,11 @@ namespace WpfApplication_Zach
                         {
                             listBox.Items.RemoveAt(listBox.Items.IndexOf(listBox.SelectedItem));
                         }
-                        catch (System.ArgumentOutOfRangeException) { }
+                        catch (System.ArgumentOutOfRangeException ex) { MessageBox.Show(ex.ToString()); }
                     }
                 }
             }
-            catch (NullReferenceException) { }
+            catch (NullReferenceException ex) { MessageBox.Show(ex.ToString()); }
         }
 
         private void logoutButton_Click(object sender, RoutedEventArgs e)

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApplication_Zach"
         mc:Ignorable="d"
-        Title="LoginWindow" Height="400" Width="600" ResizeMode="NoResize">
+        Title="Login" Height="400" Width="600" ResizeMode="NoResize">
 
     <Window.Background>
         <ImageBrush ImageSource="/Login.jpg"/>
@@ -26,6 +26,7 @@
                  Width="174" 
                  Height="25" 
                  TextChanged="UsernameBoxChangedHandler"
+                 
         />
         <TextBox x:Name="passwordTextBox" 
                  Grid.Column="1" 

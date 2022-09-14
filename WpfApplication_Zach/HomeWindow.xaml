@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApplication_Zach"
         mc:Ignorable="d"
-        Title="HomeWindow" Height="450" Width="800" ResizeMode="NoResize">
+        Title="Hauptmenü" Height="450" Width="800" ResizeMode="NoResize">
     <Window.Background>
         <ImageBrush ImageSource="/Home.jpg"/>
     </Window.Background>
@@ -19,7 +19,7 @@
         </Grid.Background>
         <ListBox x:Name="listBox"
                  d:ItemsSource="{d:SampleData ItemCount=5}" 
-                 Margin="0,0,351,0"
+                 Margin="0,0,345,0"
                  Padding="30" 
                  Background="#FF0E2763" 
                  FontSize="16" 

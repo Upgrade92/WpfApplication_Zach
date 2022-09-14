@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.SqlClient;
+﻿using System.Configuration;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Controls;
+using System.Data.SqlClient;
 using System.Windows;
-using System.Configuration;
 
 namespace WpfApplication_Zach
 {
@@ -22,7 +16,6 @@ namespace WpfApplication_Zach
             {
                 SqlConnection connection =  new SqlConnection(connectionString);
                 connection.Open();
-                SqlDataAdapter sda = new SqlDataAdapter(query, connection);
                 SqlCommand cmd = new SqlCommand(query, connection);
                 cmd.ExecuteNonQuery();
                 connection.Close();
