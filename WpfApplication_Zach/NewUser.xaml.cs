@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Controls;
+using System.Linq;
 
 namespace WpfApplication_Zach
 {
@@ -37,7 +38,7 @@ namespace WpfApplication_Zach
             }
         }
         
-        private void SaveNewUser()
+        private void SaveNewUser2()
         {
             string firstname = textBoxFirstname.Text;
             string lastname = textBoxLastname.Text;
@@ -57,7 +58,38 @@ namespace WpfApplication_Zach
                 MessageBox.Show("Nope");
             }            
         }
-        
+
+        private void SaveNewUser()
+        {
+            string firstname = textBoxFirstname.Text;
+            string lastname = textBoxLastname.Text;
+            string email = textBoxEmail.Text;
+            string gender = new Helper().RadioButtonToString(radioButtonMale, radioButtonFemale);
+            string birthdate = birthdatePicker.ToString();
+
+            if (CheckAll())
+            {
+                DataClasses1DataContext dc = new DataClasses1DataContext();
+
+                TablePeople newPerson = new TablePeople();
+                newPerson.Firstname = firstname;
+                newPerson.Lastname = lastname;
+                newPerson.E_Mail = email;
+                newPerson.Geschlecht = gender;
+                newPerson.Geburtstag = birthdate;
+                dc.TablePeople.InsertOnSubmit(newPerson);
+                dc.SubmitChanges();
+
+
+
+                MessageBox.Show("Neuer User erfolgreich angelegt!");
+            }
+            else
+            {
+                MessageBox.Show("Nope");
+            }
+        }
+
         private bool CheckAll()
         {
             bool check1 = new Helper().TextboxFilled(textBoxFirstname,labelErrorFirstname);

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data;
+using System.Linq;
 using System.Windows;
 using System.Windows.Input;
 
@@ -47,7 +48,7 @@ namespace WpfApplication_Zach
 
         private void loginButton_Click(object sender, RoutedEventArgs e)
         {
-            DoLogin();
+            DoLinqLogin();
         }
 
         private void OnKeyDownHandler(object sender, KeyEventArgs e)
@@ -74,6 +75,35 @@ namespace WpfApplication_Zach
             try
             {
                 if (ds.Tables.Count == 1)
+                {
+                    MessageBox.Show("Login erfolgreich!\n");
+                    MainWindow mainWindow = this;
+                    mainWindow.Hide();
+                    HomeWindow home = new HomeWindow();
+                    home.Show();
+                }
+            }
+            catch (IndexOutOfRangeException)
+            {
+                MessageBox.Show("Benutzerdaten unbekannt!");
+            }
+        }
+
+        private void DoLinqLogin()
+        {
+            string username = usernameBox.Text.ToString();
+            string password = passwordBox.Password.ToString();
+
+
+            DataClasses1DataContext dc = new DataClasses1DataContext();
+
+            var selectQuery = from creds in dc.GetTable<Table>()
+                              where creds.Username == username && creds.Password == password
+                              select creds;
+
+            try
+            {
+                if (selectQuery.Count() == 1)
                 {
                     MessageBox.Show("Login erfolgreich!\n");
                     MainWindow mainWindow = this;

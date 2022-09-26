@@ -34,7 +34,6 @@ namespace WpfApplication_Zach
                 connection.Open();
                 SqlDataAdapter sda = new SqlDataAdapter(query, connection);
                 DataSet ds = new DataSet();
-                DataTable dt = new DataTable();
                 sda.Fill(ds, "Table");
                 connection.Close();
 
