@@ -21,7 +21,7 @@ namespace WpfApplication_Zach
 
         private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
-            cancelButton.Content = "Schließen";
+            cancelButton.Content = "Schließen"; // This one here is new
             this.Close();
         }
 
