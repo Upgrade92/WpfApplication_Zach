@@ -14,7 +14,9 @@ namespace WpfApplication_Zach
 
         private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
+            saveButton.Content = "Speichern";
             SaveNewUser();
+            
         }
 
         private void CloseButton_Click(object sender, RoutedEventArgs e)
